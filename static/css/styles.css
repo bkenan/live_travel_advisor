@@ -1,0 +1,108 @@
+#table {
+    width:100%;
+    margin-top: 10em;
+    border: 5px solid;
+    text-align: right;
+    padding: 15px;
+  }
+
+table:hover {background-color: rgb(37, 37, 248);}
+
+body {
+  background-color: rgb(6, 6, 76);
+  color: white
+}
+
+.main{
+  color: azure;
+  margin: 7em;
+  text-align: center;
+}
+
+a:link, a:visited { 
+  color: white;
+  text-decoration: none;
+  cursor: auto;
+}
+
+.home {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  margin-left: 2rem;
+  margin-top: 5rem;
+  font-size: 50px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  font-weight: bold;
+}
+
+.home:hover {
+  background-color: RoyalBlue;
+}
+
+.for_title{
+  text-align: center;
+}
+
+#controls{
+  margin-top: 5em;
+}
+
+
+.btn {
+  background-color: #9cfb98;
+  border: none;
+  color: rgb(6, 36, 127);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: auto;
+}
+
+.btn:hover {
+  background-color: #2466eb;
+  color: white;
+}
+
+.btn-stop{
+  background-color: rgb(247, 134, 134);
+}
+
+.submit {
+  outline: none;
+  text-decoration: none;
+  background-color: #2adeef;
+  border: none;
+  color: rgb(7, 33, 114);
+  padding: 20px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  cursor: auto;
+  margin-top: 7rem;
+}
+
+.submit:hover {
+  background-color: #2466eb;
+  color: white;
+}
+
+.intro{
+  margin-top: 3em;
+}
+
+.disabled{
+  visibility: hidden;
+}
+
+/*
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: rgb(6, 6, 76);
+  background-color: rgb(6, 6, 76);
+}
+*/
