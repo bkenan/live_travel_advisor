@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="main">
+  <h1>Travel advisor</h1>
+
+  <div class="intro">
+    <p>This <b>NON-COMMERCIAL</b> application listens to you and brings top 10 hotels' key details based on you criterias. The currently accepted criterias are the following:
+      <li>ascending stars</li> 
+      <li>descending stars</li> 
+      <li>popular</li> 
+      <li>distance</li> 
+      <li>reviews</li> 
+      <li>cheapest</li> 
+
+    <hr>
+
+    Please, mention the check-in and check-out dates, also the number of persons for booking in your desired city and enjoy the app!
+  
+    </p>
+    <p><b>Example: </b>Cheapest hotel for two people in London from September eleventh until October second</p>
+  </div>
+
+  <div id="controls">
+      <button type="button" class="btn" id="recordButton">Record</button>
+      <button type="button" class="btn btn-stop" id="stopButton" disabled>Stop</button>
+  </div>
+
+
+  <div id="disable" class="disabled">
+    <a href="{{ url_for('submit') }}" id="submit" class="submit">Submit</a>
+  </div>
+
+
+
+
+
+</div>
+
+<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script src="/static/emm.js"></script>
+
+
+{% endblock %}
