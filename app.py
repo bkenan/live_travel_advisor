@@ -250,7 +250,16 @@ def upload():
 
     
     
+    global df2
+    df2 = results().head(10)
 
+    def make_clickable(val):
+        return f'<a target="_blank" href="{val}">{val}</a>'
+
+    df2.head(10).style.format({'URL': make_clickable})
+
+
+    return render_template('index.html')
 
 
 
