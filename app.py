@@ -263,6 +263,21 @@ def upload():
 
 
 
+@app.route('/submit')
+def submit():
+
+    try:
+        if df2.shape[0] ==10:
+            return render_template('test.html',  
+                                    title=f"Top 10 {order} hotels in {location} for {number} person(s) from {checkin} until {checkout}", 
+                                    tables=[df2.to_html(header="true", 
+                                    table_id="table", 
+                                    render_links=True, 
+                                    escape=False)])
+        else:
+            return render_template('error.html') 
+    except NameError:
+        return render_template('error.html') 
 
 
 
