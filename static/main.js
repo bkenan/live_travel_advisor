@@ -41,10 +41,25 @@ function startRecording() {
         console.log("Recording started");
 
     }).catch(function(err) {
-        //enable the record button if getUserMedia() fails
         recordButton.disabled = false;
         stopButton.disabled = true
     });
 }
 
+function stopRecording() {
+    console.log("stopButton clicked");
 
+    //disable the stop button, enable the record too allow for new recordings
+    stopButton.disabled = true;
+    recordButton.disabled = false;
+
+
+    //tell the recorder to stop the recording
+    rec.stop();
+
+    //stop microphone access
+    gumStream.getAudioTracks()[0].stop();
+
+    //create the wav blob and pass it on to createDownloadLink
+    rec.exportWAV(createDownloadLink);
+}
