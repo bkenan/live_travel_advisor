@@ -222,6 +222,31 @@ def upload():
     print(error_check())
 
 
+    def results():
+        
+        try:
+            data_search = json.loads(request_api().text)
+            df = pd.DataFrame(data_search['result'])
+            df = df[['hotel_name',
+                    'class',
+                    'accommodation_type_name',
+                    'review_score_word',
+                    'distance_to_city_centre_formatted',
+                    'address',
+                    'url']]
+            df = df.rename(columns={'hotel_name': 'Name',
+                            'class': 'Star',
+                            'accommodation_type_name': 'Type',
+                            'review_score_word': 'Review',
+                            'distance_to_city_centre_formatted': 'Distance',
+                            'address': 'Address',
+                            'url': 'URL'})
+            df.index += 1 
+            df['Star'].replace(0, 'N/A', inplace=True)
+            df['Review'].replace('', 'N/A', inplace=True)
+            return df
+        except:
+            print("Try again!")
 
     
     
