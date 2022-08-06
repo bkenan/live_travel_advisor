@@ -11,7 +11,6 @@ from nltk.corpus import stopwords
 import nltk
 import spacy
 import pandas as pd
-import numpy as np
 import json
 from word2number import w2n
 from api import keys
@@ -216,7 +215,7 @@ def upload():
         try:
             request_api()
             print('Success!')
-        except:
+        except AttributeError:
             print("An exception occurred")
 
     print(error_check())
@@ -245,7 +244,7 @@ def upload():
             df['Star'].replace(0, 'N/A', inplace=True)
             df['Review'].replace('', 'N/A', inplace=True)
             return df
-        except:
+        except AttributeError:
             print("Try again!")
 
     

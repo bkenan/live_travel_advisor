@@ -1,24 +1,22 @@
-import torch
-import librosa
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Tokenizer
-import numpy as np
-from scipy.io import wavfile
+import string
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+import nltk
+
+
+
+sentence = "Cheapest hotel for two people in Paris from September eleventh until October second"
 
 
 def test():
-    
-    file_name = './assets/audio.wav'
-    tokenizer = Wav2Vec2Tokenizer.from_pretrained("facebook/wav2vec2-base-960h")
-    model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
-    data = wavfile.read(file_name)
-    framerate = data[0]
-    sounddata = data[1]
-    time = np.arange(0,len(sounddata))/framerate
-    input_audio, _ = librosa.load(file_name, sr=16000)
-    input_values = tokenizer(input_audio, return_tensors="pt").input_values
-    logits = model(input_values).logits
-    predicted_ids = torch.argmax(logits, dim=-1)
-    transcription = tokenizer.batch_decode(predicted_ids)[0]
-    assert transcription=="TRAVELLING TO LONDON FROM SEPTEMBER FIRST UNTIL SEPTEMBER FIFTEENTH"
-    
 
+    tokens = nltk.word_tokenize(sentence)
+    stop_words = set(stopwords.words('english'))
+    punctuations = string.punctuation
+    tokens = [w for w in tokens if w.lower() not in stop_words and w not in punctuations]
+    wordnet_lemmatizer = WordNetLemmatizer()
+    tokens = [wordnet_lemmatizer.lemmatize(word).lower().strip() for word in tokens]
+    assert len(tokens) == 9
+
+
+   
