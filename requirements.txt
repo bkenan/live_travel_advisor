@@ -3,13 +3,11 @@ pylint
 flask
 torch
 librosa
-string
 transformers 
 requests
 nltk
 spacy
 pandas
 numpy
-json
 word2number 
 scipy
