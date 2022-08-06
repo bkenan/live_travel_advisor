@@ -12,3 +12,4 @@ pandas
 numpy
 json
 word2number 
+scipy
