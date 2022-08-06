@@ -60,6 +60,7 @@ a:link, a:visited {
   font-size: 16px;
   border-radius: 20px;
   cursor: auto;
+  margin: 2rem;
 }
 
 .btn:hover {

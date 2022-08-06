@@ -189,7 +189,7 @@ def upload():
     checkin = checkin_date
     checkout = checkout_date
     number = adults_number
-    order = criterias[categories_list_ui.index(order_by)]
+    order = criterias[categories_list.index(order_by)]
     location = city()
 
     print(checkin_date, checkout_date, dest_id, adults_number, order_by)
@@ -278,7 +278,6 @@ def submit():
             return render_template('error.html') 
     except NameError:
         return render_template('error.html') 
-
 
 
 

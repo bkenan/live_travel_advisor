@@ -76,7 +76,7 @@ function createResultLink(blob) {
           function() {
             document.getElementById("disable").classList.remove('disabled');
 
-          }, 10000);
+          }, 15000);
       }
       submit();
 }
