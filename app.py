@@ -158,9 +158,41 @@ def upload():
         return [dd_list[0][0], dd_list[1][0]]
 
 
+    def check_year():
+        for m in check_months():
+            if m<8:
+                year[check_months().index(m)] = 2023
+        return year     
+
+    headers,url_locations,url_search=keys()
+
+    def destination():
+        querystring_locations = {"locale":"en-us","name":f"{city()}"}
+        response_locations = requests.request("GET", url_locations, headers=headers, params=querystring_locations)
+        dest = json.loads(response_locations.text)
+        #df = pd.DataFrame(data)
+        return dest[0]['dest_id']
 
 
+    checkin_date = f"{check_year()[0]}-{check_months()[0]}-{check_days()[0]}"
+    checkout_date = f"{check_year()[1]}-{check_months()[1]}-{check_days()[1]}"
+    dest_id = destination()
+    adults_number = f"{people()}"
+    order_by = category()
+    
+    global checkin
+    global checkout
+    global number
+    global order
+    global location
 
+    checkin = checkin_date
+    checkout = checkout_date
+    number = adults_number
+    order = criterias[categories_list_ui.index(order_by)]
+    location = city()
+
+    print(checkin_date, checkout_date, dest_id, adults_number, order_by)
 
 
 
