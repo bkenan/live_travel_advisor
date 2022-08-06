@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 import json
 from word2number import w2n
-from api import keys
+
 
 #nltk.download('stopwords')
 #nltk.download('punkt')
@@ -194,7 +194,32 @@ def upload():
 
     print(checkin_date, checkout_date, dest_id, adults_number, order_by)
 
+    def request_api():
 
+        querystring_search = {
+            "checkout_date":checkout_date,
+            "units":"metric",
+            "dest_id":dest_id,
+            "dest_type":"city",
+            "locale":"en-us",
+            "adults_number":adults_number,
+            "order_by":order_by,
+            "filter_by_currency":"USD",
+            "checkin_date":checkin_date,
+            "room_number":"1"}
+            
+        response_search = requests.request("GET", url_search, headers=headers, params=querystring_search)
+        return response_search
+
+
+    def error_check():
+        try:
+            request_api()
+            print('Success!')
+        except:
+            print("An exception occurred")
+
+    print(error_check())
 
 
 
