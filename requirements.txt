@@ -11,3 +11,4 @@ pandas
 numpy
 word2number 
 scipy
+soundfile
