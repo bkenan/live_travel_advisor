@@ -26,7 +26,7 @@ make all
 ```
 ```
 python3 app.py
-
+```
 
 ### Future work
 
