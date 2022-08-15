@@ -12,12 +12,14 @@ HTML, CSS, JavaScript for managing the buttons and UI
 
 I used a pre-trained deep learning model, [Facebook's Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base-960h) for turning the speech into transcripts. For the most logic, I used Python Flask functions to implement the functionality along with the NLP best practices. Here is the quick overview of the workflow:
 
-![logic](https://user-images.githubusercontent.com/53462948/184711401-d041fe5b-18cc-4b2a-959a-e8efed3883a8.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/53462948/184711401-d041fe5b-18cc-4b2a-959a-e8efed3883a8.png" />
+</p>
 
 
 ## Deployment
 
-AWS ECR (Amazon Elastic Container Registry) is a professional container registry offering high-performance hosting, where I'm also hosting my Docker image. I also used AWS ECS (Amazon Elastic Container Service) to orchestrate my Docker container and successfully run my application on AWS EC2 (Amazon Elastic Compute Cloud). Broadly speaking, I pushed docker image to AWS ECR  and from there I used ECS to deploy my app into EC2 instance as describe in the diagram:
+AWS ECR (Amazon Elastic Container Registry) is a professional container registry offering high-performance hosting, where I'm also hosting my Docker image. I also used AWS ECS (Amazon Elastic Container Service) to orchestrate my Docker container and successfully run my application on AWS EC2 (Amazon Elastic Compute Cloud). Broadly speaking, I pushed docker image to AWS ECR  and from there I used ECS to deploy my app into EC2 instance as described in the diagram below:
 
 ![Unknown](https://user-images.githubusercontent.com/53462948/184713454-1eec2e95-53ef-4f57-97d1-7596ba704e04.png)
 
@@ -51,10 +53,12 @@ python3 app.py
 
 ### Access the results
 
-![2](https://user-images.githubusercontent.com/53462948/184708491-8c0ee600-9058-4c25-9cf4-ae2c88e73346.gif)
+<img src="https://user-images.githubusercontent.com/53462948/184708491-8c0ee600-9058-4c25-9cf4-ae2c88e73346.gif" width="800" height="450"/>
+
 
 ### Error handling
 
-![3](https://user-images.githubusercontent.com/53462948/184709082-347614ee-d621-4288-8a6c-d5808ab5eda3.gif)
+<img src="https://user-images.githubusercontent.com/53462948/184709082-347614ee-d621-4288-8a6c-d5808ab5eda3.gif" width="800" height="450"/>
+
 
 
