@@ -4,6 +4,19 @@
 
 I built this non-Commercial web app for my Duke project. What it  does is that it listens to you and provides top 10 travel listing based on your criterias. The app itsels has been designed in a way that users can easily navigate around. It is a simple app but really brings the most suitable hotels (flights and other travelling parameters will be added later) to your convenience just by listening. Hence, this app can be quite friendly for people who don't wanna spend too much time on typing and understanding the working mechanism of the currently available travel management websites. This robotic approach in services is most likely going to be the future in most service sectors soon. I'm using API to call the most up-to-date information available on internet. 
 
+## How it works?
+
+The application listens to you and brings top 10 hotels' key details based on your criterias. The currently accepted criterias are the following:
+
+- ascending/descending stars
+- popularity 
+- distance to the center
+- reviews
+- price
+
+The users are asked to include the check-in and check-out dates, also the number of persons and the location for booking in their voice recordings.    
+The results become available within few seconds after recording is stopped.
+
 ## Frontend 
 
 HTML, CSS, JavaScript for managing the buttons and UI
@@ -47,7 +60,7 @@ python3 app.py
 
 <img width="1433" alt="1" src="https://user-images.githubusercontent.com/53462948/184707843-7415b4aa-4378-4db1-9bbc-f5e07693bc7f.png">
 
-### The results become available within 10 seconds
+### The results
 
 <img width="1432" alt="2" src="https://user-images.githubusercontent.com/53462948/184707877-f35b1021-160b-4ff5-8158-cc0615f7f215.png">
 
