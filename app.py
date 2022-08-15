@@ -14,6 +14,8 @@ import pandas as pd
 import json
 from word2number import w2n
 from api import keys
+import calendar
+import inflect
 
 #nltk.download('stopwords')
 #nltk.download('punkt')
@@ -43,41 +45,20 @@ def upload():
     transcriptions = tokenizer.decode(predicted_ids[0])
     print(transcriptions)
 
-    #sentence = "Cheapest hotel for two people in Paris from September eleventh until October second"
+    sentence = "Most popular hotel for one person in Paris from September fifteenth until September eighteenth"
     categories_list_ui=['ascending stars', 'descending stars', 'popular', 'distance', 'reviews', 'cheapest']
-
+    criterias=['low star', 'high star', 'popular', 'close to center', 'score based', 'cheapest']
     categories_list=['class_ascending', 'class_descending', 'popularity', 'distance', 'review_score', 'price']
 
-    criterias=['low star', 'high star', 'popular', 'close to center', 'score based', 'cheapest']
-
-    months = {
-        'january': 1, 
-        'february': 2,
-        'march': 3,
-        'april': 4, 
-        'may': 5, 
-        'june': 6, 
-        'july': 7, 
-        'august': 8, 
-        'september': 9, 
-        'october': 10, 
-        'november': 11, 
-        'december': 12
-        }
-
-    numbers = ['one', 
-                'two',
-                'three',
-                'four',
-                'five',
-                'six',
-                'seven',
-                'eight',
-                'nine',
-                'ten'
-                ]
-
     year = [2022,2022]
+
+    def month():
+        months = {i:calendar.month_name[i] for i in range(1, 13)}
+        months = {v: k for k, v in months.items()}
+        months =  {k.lower(): v for k, v in months.items()}
+        return months
+
+
 
     def city():
         nlp = spacy.load('en_core_web_lg')
@@ -106,6 +87,7 @@ def upload():
         tokens = [wordnet_lemmatizer.lemmatize(word).lower().strip() for word in tokens]
         return tokens
 
+
     def token_by_adjusted_day():
         tokens = token()
         for d in tokens:
@@ -116,7 +98,11 @@ def upload():
                 tokens.pop(dd+1)
         return tokens
 
+
     def people():
+        nums = [i for i in range(1,11)]
+        inf = inflect.engine()
+        numbers = [inf.number_to_words(i) for i in nums]
         p = list(set(token_by_adjusted_day()) & set(numbers))[0]
         p_num = w2n.word_to_num(p)
         return p_num
@@ -127,6 +113,7 @@ def upload():
         return order_by
 
     def check_months():
+        months = month()
         tokens =  token_by_adjusted_day()
         months_list = list(months.keys())
         final_months = list(set(tokens).intersection(months_list))
@@ -230,14 +217,14 @@ def upload():
                     'class',
                     'accommodation_type_name',
                     'review_score_word',
-                    'distance_to_city_centre_formatted',
+                    'distance_to_cc',
                     'address',
                     'url']]
             df = df.rename(columns={'hotel_name': 'Name',
                             'class': 'Star',
                             'accommodation_type_name': 'Type',
                             'review_score_word': 'Review',
-                            'distance_to_city_centre_formatted': 'Distance',
+                            'distance_to_cc': 'Distance',
                             'address': 'Address',
                             'url': 'URL'})
             df.index += 1 
@@ -282,6 +269,7 @@ def submit():
 
 if __name__ == "__main__":
     
-    app.run(host='0.0.0.0', port=8080, debug=True)
-
-
+    #Deployment: 
+    #app.run(host='0.0.0.0', port=8080, debug=True)
+    #Localhost:
+    app.run()
