@@ -32,6 +32,7 @@ I used a pre-trained deep learning model, [Facebook's Wav2Vec2](https://huggingf
 
 ## Deployment
 
+Cloud environment offers awesome opportunities for the MLOps. See [my article](https://medium.com/@kanan.bk/cloud-computing-40630858aefc) on this first.
 AWS ECR (Amazon Elastic Container Registry) is a professional container registry offering high-performance hosting, where I'm also hosting my Docker image. I also used AWS ECS (Amazon Elastic Container Service) to orchestrate my Docker container and successfully run my application on AWS EC2 (Amazon Elastic Compute Cloud). Broadly speaking, I pushed docker image to AWS ECR  and from there I used ECS to deploy my app into EC2 instance as described in the diagram below:
 
 ![Unknown](https://user-images.githubusercontent.com/53462948/184713454-1eec2e95-53ef-4f57-97d1-7596ba704e04.png)
